@@ -149,11 +149,20 @@ foreach year in 2001 2002 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014
 	}
 drop if zipcode == 0 | zipcode == 99999
 replace state = upper(state)
-
+n
 foreach x of varlist agi a_eitc a_itemized_deduc {
 	replace `x' = `x' / 1000 if year == 2007 | year == 2008
 	}
 compress
+
+label var state "State"
+label var year "Year of Tax Filing"
+label var prep "Number of returns with paid preparer's signature"
+label var n_eitc "Number of returns with earned income credit"
+label var a_eitc "Earned income credit amount"
+label var n_itemized_deduc "Number of returns with itemized deductions"
+label var a_itemized_deduc "Total itemized deductions amount"
+
 save "$data_clean/zip_irs_data",replace
 
 bys zipcode state: egen num_obs = count(year)

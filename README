@@ -1,0 +1,11 @@
+
+
+Data comes from here: https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-statistics-zip-code-data-soi
+
+This data is a pain to work with. They've started to harmonize, but the older files stink. A couple key issues: with small zips, historically, they "grouped" in a non-obvious way.
+
+There are bins that you can get distributional info from, but it's a pain to code. Check out the python code in the code folder if you want to try to extend it.
+
+I made a file with "balanced" zips to try to exploit the panel nature
+
+I didn't include any of the input files, but to get this code working it requires a little bit of finessing file names. :-( Sorry.
